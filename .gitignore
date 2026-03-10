@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+
+# Environments
+.env
+.venv
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Experiments & checkpoints
+experiments/
+*.ckpt
+
+# Data
+*.npz
+datasets/
+
+# Logs
+*.log
+lightning_logs/

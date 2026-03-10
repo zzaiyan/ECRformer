@@ -1,0 +1,9 @@
+torch>=2.0
+pytorch-lightning>=2.0
+timm
+einops
+numpy
+tensorboard
+rasterio
+natsort
+tqdm
