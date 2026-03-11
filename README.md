@@ -1,8 +1,16 @@
-# ECRformer
+<div align="center">
 
-**ECRformer: Efficient Cloud Removal Transformer for Multi-Modal Satellite Imagery**
+  <h2><b> ECRformer: An Efficient Cloud Removal Transformer with Semantic-Decoupled Learning for Multi-Modal Satellite Imagery (Under Review) </b></h2>
 
-> Under Review
+</div>
+
+
+<div align="center">
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/zzaiyan/ECRformer)
+
+</div>
+
 
 ## Introduction
 
@@ -52,7 +60,7 @@ pip install rasterio natsort
 
 ### Option A: Pre-processed NPZ format (recommended)
 
-Place your `.npz` files under the dataset root. Each file should contain arrays `s1`, `s2`, `label`, `masks`, `paths`.
+Place your `.npz` files under the dataset root. Each file should contain arrays `s1`, `s2`, `label`, `paths`.
 
 Edit `config/ecrformer_config.py`:
 ```python
@@ -127,7 +135,7 @@ If you find this work useful, please cite:
 
 ```bibtex
 @article{ecr_former,
-    title     = {ECRformer: Efficient Cloud Removal Transformer for Multi-Modal Satellite Imagery},
+    title     = {ECRformer: An Efficient Cloud Removal Transformer with Semantic-Decoupled Learning for Multi-Modal Satellite Imagery},
     author    = {TODO},
     journal   = {TODO},
     year      = {2026},

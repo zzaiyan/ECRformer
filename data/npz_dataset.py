@@ -11,7 +11,6 @@ class NPZ_Dataset(Dataset):
         s1:    SAR images (2 channels)
         s2:    Cloudy optical images (13 channels)
         label: Cloud-free target images (13 channels)
-        masks: Cloud masks (4 channels)
         paths: File paths
     """
 
@@ -31,15 +30,13 @@ class NPZ_Dataset(Dataset):
         self.sar_list = npz_file['s1']
         self.cloudy_list = npz_file['s2']
         self.target_list = npz_file['label']
-        self.masks_list = npz_file['masks']
         self.paths_list = npz_file['paths']
         length_list = [len(l) for l in [self.sar_list, self.cloudy_list,
-                                        self.target_list, self.masks_list, self.paths_list]]
+                                        self.target_list, self.paths_list]]
         assert max(length_list) == min(length_list), "数据集长度不一致！"
         if 'train' in self.split or 'test' in self.split:
             print(f'{len(self)} samples loaded, with SAR: {self.sar_list[0].shape}, '
-                  f'Cloudy: {self.cloudy_list[0].shape}, Target: {self.target_list[0].shape}, '
-                  f'masks: {self.masks_list[0].shape}')
+                  f'Cloudy: {self.cloudy_list[0].shape}, Target: {self.target_list[0].shape}')
 
     def __len__(self) -> int:
         return len(self.sar_list)
@@ -49,7 +46,6 @@ class NPZ_Dataset(Dataset):
             "SAR": self.sar_list[idx].astype(np.float32) * self.data_range,
             "cloudy": self.cloudy_list[idx].astype(np.float32) * self.data_range,
             "target": self.target_list[idx].astype(np.float32) * self.data_range,
-            "masks": self.masks_list[idx].astype(np.float32),
         }
 
         if self.crop_size is not None:

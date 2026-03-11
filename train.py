@@ -20,8 +20,7 @@ from config import find_config_using_name
 class CloudRemovalModel(pl.LightningModule):
     """PyTorch Lightning module for cloud removal with ECRformer.
 
-    Supports multi-scale projection loss (down_proj + up_proj) and
-    optional cloud mask detection via a pretrained detector.
+    Supports multi-scale projection loss (down_proj + up_proj).
     """
 
     def __init__(self, config: Namespace):
@@ -140,7 +139,7 @@ class CloudRemovalModel(pl.LightningModule):
 # ---------------------------------------------------------------------------
 
 def main(config):
-    torch.set_float32_matmul_precision("high")
+    torch.set_float32_matmul_precision("highest")
     pl.seed_everything(config.seed)
 
     # 创建数据集

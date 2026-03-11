@@ -85,7 +85,10 @@ class ECRformerModel(nn.Module):
                 kernel_size=7, dilation=[1, ],
                 conv_type=conv_type, norm_type=norm_type)
         else:
-            raise NotImplementedError()
+            self.stem = nn.Conv2d(
+                in_chans, features_start,
+                kernel_size=7, padding=3, padding_mode='reflect')
+            # raise NotImplementedError()
 
         encoder_feats = [features_start * (2 ** i) for i in range(num_layers)]
         decoder_feats = encoder_feats[::-1]
@@ -368,7 +371,8 @@ class DecoupledEncoder(nn.Module):
 
     def forward(self, x):
         inputs = torch.split(x, self.in_ch_list, dim=1)
-        print(f"Input shape: {x.shape}, split into {[i.shape for i in inputs]}")
+        print(
+            f"Input shape: {x.shape}, split into {[i.shape for i in inputs]}")
         outputs = [f(x) for f, x in zip(self.branch, inputs)]
         return torch.cat(outputs, dim=1)
 
