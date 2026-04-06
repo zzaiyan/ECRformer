@@ -51,19 +51,6 @@ These improvements enhance reconstruction quality, training stability, and relia
 | **ECRformer-Light** | *Ours* | 0.0178 | 5.026 | 32.75 | 0.920 | 0.224 | 0.0182 | 5.185 | 32.41 | 0.918 | 0.235 |
 | **ECRformer** | *Ours* | **0.0164** | **4.693** | **33.37** | **0.932** | 0.188 | **0.0167** | **4.751** | **33.05** | **0.929** | **0.196** |
 
-### Performance vs. Efficiency
-
-| Method | PSNR / SSIM | Params | FLOPs | Training Time (GPU·h) |
-|--------|-------------|--------|-------|-----------------------|
-| DSen2-CR | 27.76 / 0.874 | 18.95M | 1241.18G | 212.9 |
-| GLF-CR | 28.64 / 0.885 | 14.83M | 249.71G | 142.4 |
-| UnCRtainTS | 28.90 / 0.880 | 0.52M | 28.56G | 89.5 |
-| DiffCR | 31.77 / 0.902 | 22.91M | 45.86G | 396.0 |
-| HPN-CR | 30.23 / 0.898 | 3.69M | 19.61G | 130.4 |
-| EMRDM | 32.14 / 0.924 | 39.13M | 417.85G | 231.7 |
-| **ECRformer-Light** | 32.75 / 0.920 | **3.70M** | **35.78G** | **78.4** |
-| **ECRformer** | **33.37 / 0.932** | 11.29M | 102.47G | 142.1 |
-
 ## Project Structure
 
 ```
@@ -160,14 +147,8 @@ python train.py --config ecrformer --gpu 0
 # Train ECRformer-Light
 python train.py --config ecrformer_light --gpu 0
 
-# Train ECRformer with raw SEN12MS-CR
-python train.py --config ecrformer_sen12mscr --gpu 0
-
 # Train with custom experiment name
 python train.py --config ecrformer --name my_experiment --gpu 0
-
-# Disable auto-resume
-python train.py --config ecrformer --no-resume --gpu 0
 ```
 
 Training logs are saved to `./experiments/` and can be viewed with TensorBoard:
