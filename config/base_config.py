@@ -26,9 +26,9 @@ class BaseConfig(Namespace):
 
         # 训练
         self.train = Namespace(
-            max_epoch=1000,
-            early_stop=100,
-            lr=1e-4,
+            max_epoch=200,
+            early_stop=10,
+            lr=4e-4,
             loss_weight=[0.9, 0.1],
             proj_weight=[0., 0.],
             train_bs=16,
