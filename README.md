@@ -44,7 +44,7 @@ These improvements enhance reconstruction quality, training stability, and relia
 
 ### Visualization under Different Cloud Cover Conditions
 
-<img src="assets/samples.png" width="800px">
+<img src="assets/example_via_cloud_coverage.svg" width="800px">
 
 ## Project Structure
 
