@@ -29,6 +29,8 @@ To tackle this, we propose **ECRformer** (Efficient Cloud Removal Transformer). 
 
 These improvements enhance reconstruction quality, training stability, and reliability, culminating in new **state-of-the-art (SOTA)** performance on both the SEN12MS-CR and LuojiaSET-OSFCR large-scale optical-SAR cloud removal datasets. Notably, ECRformer surpasses previous SOTA methods by **1.23/0.90 dB in PSNR**, while requiring only **28.9% of the parameters** and **24.5% of the FLOPs**, providing a powerful, efficient, and reliable solution for multimodal cloud removal.
 
+<br>
+
 <div align="center">
   <img src="assets/ecrformer.png" width="800px">
   <p><em>The overall framework of ECRformer. The U-shaped backbone with efficient ECRformer Blocks processes concatenated optical and SAR inputs, while the SDFL paradigm applies asymmetric supervision to guide progressive reconstruction from structure to texture.</em></p>
@@ -38,18 +40,11 @@ These improvements enhance reconstruction quality, training stability, and relia
 
 ### Quantitative Comparison on SEN12MS-CR and LuojiaSET-OSFCR
 
-| Method | Venue | MAE ↓ | SAM ↓ | PSNR ↑ | SSIM ↑ | LPIPS ↓ | MAE ↓ | SAM ↓ | PSNR ↑ | SSIM ↑ | LPIPS ↓ |
-|--------|-------|-------|-------|--------|--------|---------|-------|-------|--------|--------|---------|
-| | | **SEN12MS-CR** | | | | | **LuojiaSET-OSFCR** | | | | |
-| SAR-Opt-cGAN | IGARSS'18 | 0.0431 | 15.494 | 25.59 | 0.764 | 0.476 | 0.0457 | 15.953 | 25.31 | 0.752 | 0.498 |
-| DSen2-CR | ISPRS'20 | 0.0313 | 9.472 | 27.76 | 0.874 | 0.354 | 0.0317 | 9.511 | 27.68 | 0.873 | 0.359 |
-| GLF-CR | ISPRS'22 | 0.0280 | 8.981 | 28.64 | 0.885 | 0.321 | 0.0284 | 9.039 | 28.57 | 0.884 | 0.327 |
-| UnCRtainTS | CVPRW'23 | 0.0272 | 8.324 | 28.90 | 0.880 | 0.287 | 0.0299 | 8.495 | 28.05 | 0.878 | 0.294 |
-| DiffCR | TGRS'24 | 0.0191 | 5.821 | 31.77 | 0.902 | 0.244 | 0.0194 | 5.886 | 31.71 | 0.900 | 0.263 |
-| HPN-CR | TGRS'25 | 0.0242 | 7.637 | 30.23 | 0.898 | 0.275 | 0.0246 | 7.692 | 30.17 | 0.897 | 0.299 |
-| EMRDM | CVPR'25 | 0.0179 | 5.267 | 32.14 | 0.924 | **0.181** | 0.0182 | 5.338 | 32.15 | 0.921 | 0.201 |
-| **ECRformer-Light** | *Ours* | 0.0178 | 5.026 | 32.75 | 0.920 | 0.224 | 0.0182 | 5.185 | 32.41 | 0.918 | 0.235 |
-| **ECRformer** | *Ours* | **0.0164** | **4.693** | **33.37** | **0.932** | 0.188 | **0.0167** | **4.751** | **33.05** | **0.929** | **0.196** |
+<img src="assets/table1.png" width="800px">
+
+### Visualization under Different Cloud Cover Conditions
+
+<img src="assets/samples.png" width="800px">
 
 ## Project Structure
 
