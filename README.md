@@ -163,11 +163,14 @@ If you find this work useful, please cite:
 
 ```bibtex
 @article{zhang2026ecrformer,
-    title     = {ECRformer: An Efficient Cloud Removal Transformer with Semantic-Decoupled Learning for Multimodal Satellite Imagery},
+    title     = {{ECRformer: An Efficient Cloud Removal Transformer with Semantic-Decoupled Learning for Multimodal Satellite Imagery}},
     author    = {Zhang, Zaiyan and Li, Jie and Liang, Yuanqi and Yan, Jining and Xiao, Yi and Su, Xin and Yuan, Qiangqiang},
     journal   = {ISPRS Journal of Photogrammetry and Remote Sensing},
+    volume    = {237},
+    pages     = {323-338},
     year      = {2026},
-    publisher = {Elsevier}
+    publisher = {Elsevier},
+    doi       = {10.1016/j.isprsjprs.2026.04.009}
 }
 ```
 
