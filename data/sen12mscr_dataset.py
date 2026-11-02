@@ -175,6 +175,7 @@ class SEN12MSCR(Dataset):
     def _get_paths(self):
         print(f'\nProcessing paths for {self.split} split (season={self.season})')
         paths = []
+        split_rois = {os.path.normpath(roi) for roi in self.split_rois}
         seeds_S1 = natsorted([
             d for d in os.listdir(self.root_dir)
             if '_s1' in d and not d.endswith('.tar')
@@ -183,6 +184,9 @@ class SEN12MSCR(Dataset):
             rois = natsorted(os.listdir(os.path.join(self.root_dir, seed)))
             for roi in rois:
                 roi_dir = os.path.join(self.root_dir, seed, roi)
+                roi_rel = os.path.normpath(os.path.join(seed, roi))
+                if roi_rel not in split_rois:
+                    continue
                 patches_S1 = natsorted([
                     os.path.join(roi_dir, f) for f in os.listdir(roi_dir)
                 ])
@@ -197,8 +201,6 @@ class SEN12MSCR(Dataset):
                 for i in range(len(patches_S1)):
                     if not all(os.path.isfile(p) for p in
                                [patches_S1[i], patches_S2[i], patches_S2_cloudy[i]]):
-                        continue
-                    if not any(r in patches_S1[i] for r in self.split_rois):
                         continue
                     paths.append({
                         'S1': patches_S1[i],
